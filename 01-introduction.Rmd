@@ -45,7 +45,7 @@ Throughout the book, there's a focus on using strings. Strings (words) are a col
 - Length of word $w$ would be represented as $|w|$.
 - Reverse of word $w$ would be represented as $w^R$ (palendrome).
 
-The complement of a set is *everything that isn't in a given set*. So if ${A}$ was a set of all natural numbers, $A'= \{ n | n \notin N \}$. This is sort of like writing `!(yourLogicalStatement)` in Javascript, but ${!}$ in mathematical notation is factoral multiplication. 
+The complement of a set is *everything that isn't in a given set*. So if ${A}$ was a set of all natural numbers, $A'= \{ n | n \notin N \}$. This is sort of like writing `!(yourLogicalStatement)` in Javascript, but ${!}$ in mathematical notation is factoral multiplication so wouldn't make sense here. 
 
 ### Transitive, Reflexive, and Symmetric relations.
 
@@ -82,12 +82,30 @@ True
 
 \[ \{ n | \frac{n}{2} \notin N \} \]
 
-**Exercise 1.4:**
+**Exercise 1.4:** For each of the strings $w$ below, exhibit both $|w|$ and $w^R$:
+
+a) dooGyreV: $|a| = 8, \ a^R =$ VeryGood
+b) kaerBAekaT: $|b| = 10, \ b^R =$ TakeABreak
+c) kcanSAevaH: $|c| = 10, \ c^R =$ HaveASnack
+d) ysaEooTsIsihT: $|d| = 13, \ d^R =$ ThisIsTooEasy
 
 **Exercise 1.5:** Let $A= \{1, 2, ..., 100 \}$ and $B= \{ a, b, c, d \}$. How large is $A \times B$?
 
 $N=400$
 
-**Exercise 1.6:**
+**Exercise 1.6:** Let $R = \{ a, b, c, d \}$ and $S = \{0, 1\}$. What is $R \times S$?
 
-**Exercise 1.7:**
+\[ \{ (a, 0), (b, 0), (c, 0), (d, 0), (a, 1), (b, 1), (c, 1), (d, 1) \} \]
+
+**Exercise 1.7:** Define a relation $R$ on $N \times N$ by
+
+\[ R= \{ (x, y) \ | \ x \in N, y \in N \ \text{and} \ y \ \text{is even} \} \]
+
+Prove or disprove: $R$ is an equivalence relation:
+
+
+* $R$ can be understood to mean "given $(x, y)$, $R$ is the set of all number pairs where $x$ and $y$ are both natural numbers ($N$), and the sum of $x+y$ is even."
+* $R_{(1, 3)}:$ $x$ and $y$ are both natural numbers. $1 + 3 = 4$ and $\frac{4}{2}=2$, therefore $(1,3)$ is in $R$.
+* $R_{(4, 6)}:$ $x$ and $y$ are both natural numbers. $4 + 6 = 10$ and $\frac{10}{2}=5$, therefore $(4,6)$ is also in $R$.
+* $2\neq 5$, therefore $R_{(4, 6)} \neq R_{(1, 3)}$. If these two items are not reflexive, then this set does not have a reflexive property.
+* If the set does not have a reflexive relation, it cannot have an equivalence relation.
