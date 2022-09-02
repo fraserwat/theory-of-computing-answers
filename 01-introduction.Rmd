@@ -29,8 +29,8 @@ The above would be read as *"*${2n}$*, given *${n}$ *is an element within the se
 
 **Fraser's Q:** Why does ${N - \{0\}}$ denote the set of all positive numbers, and not something like ${N \neq 0}$?
 
-- They're equivalent. Whilst ${N - \{0\}}$ means the set of all natural numbers *except* a set only containing ${0}$, ${N \neq 0}$ is just all natural numbers which do not equal ${0}$.
-- You might prefer the first format as it's more flexible - you can just add more numbers to exclude. E.g. ${N - \{0, 1, 2\}}$
+- This is because ${N}$ is a set, whilst $0$ is a number. So although $\{ 0 \}$ might only be a set with a length of one, $\{ 0 \} \neq 0$.
+- ${N \neq 0}$ is true! But because a set is not a number. This is why we would say ${N - \{0\}}$ when we are talking about the set of all positive numbers.
 
 ## Joining Sets
 
@@ -53,7 +53,7 @@ The complement of a set is *everything that isn't in a given set*. So if ${A}$ w
 
 - **Symmetric:** If you have equivalence from $a \rightarrow b$ and another arrow from $b \rightarrow a$, then this is symmetric. Again, all or nothing — it is symmetric if for every arrow drawing equivalence, there is an equal and opposing relation backwards.
 
-- **Reflexive:** If we are also going to use modular arithmetic here too, then we would be looking more like $10 \ \text{mod} \ 3 = 10 \ \text{mod} \ 3 $.
+- **Reflexive:** If we are also going to use modular arithmetic here too, then we would be looking more like $10 \ \text{mod} \ 3 = 10 \ \text{mod} \ 3$.
   - If you add more arrows going to other items, it doesn’t matter — still reflexive! On the other hand, if you have two sets $\{a,b,c,d\}$, and you have arrows going from both $a$’s, $b$’s, & $c$’s — but no equivalence between $d_1$ and $d_2$ — this is not reflexive. It’s all or nothing!
 
 - **Equivalence:** If it has a Transitive, Symmetric and Reflexive relation, then we can say it has an equivalence relation. I.e. $A=B$
@@ -73,14 +73,29 @@ b) $\{e, i, t, c\} \subset \{a, ..., z\}$
 True
 
 c) $\bar{ \{2n\ | \ n \in N\} } = \{2n+1 \ | \ n \in N\}$
-True
+False
+
+Originally had this as True, but did not consider that the complement of $\{2n\ | \ n \in N\}$ would also include non-natural numbers, whereas $\{ 2n \ | \ n \in N \}$ specifically states all members of the set would be natural.
 
 d) $\{ 1, 2, 3, 4, 5 \} = \{1, ... , 5\}$
 True
 
 **Exercise 1.3:** Give a representation for the odd natural numbers.
 
+My original answer to this was:
+
 \[ \{ n | \frac{n}{2} \notin N \} \]
+
+This is incorrect as (e.g.) $4.5$ would work; $\frac{4.5}{2}=2.25$ is not a neutral number. Instead we want to include a statement that $n$ is also a natural number, like so:
+
+\[ \{ n | n \in N, \frac{n}{2} \notin N \} \] 
+
+However, a more conventional way of writing it is:
+
+\[ \{ 2n - 1\ | \ n \in N \} \]
+
+Not only is this slightly more concise, all I've done in the first definition is define what my set is *not*, as opposed to defining what it *is*.
+
 
 **Exercise 1.4:** For each of the strings $w$ below, exhibit both $|w|$ and $w^R$:
 
@@ -99,13 +114,14 @@ $N=400$
 
 **Exercise 1.7:** Define a relation $R$ on $N \times N$ by
 
-\[ R= \{ (x, y) \ | \ x \in N, y \in N \ \text{and} \ y \ \text{is even} \} \]
+\[ R= \{ (x, y) \ | \ x \in N, y \in N, x+y \ \text{is even} \} \]
 
 Prove or disprove: $R$ is an equivalence relation:
 
 
 * $R$ can be understood to mean "given $(x, y)$, $R$ is the set of all number pairs where $x$ and $y$ are both natural numbers ($N$), and the sum of $x+y$ is even."
-* $R_{(1, 3)}:$ $x$ and $y$ are both natural numbers. $1 + 3 = 4$ and $\frac{4}{2}=2$, therefore $(1,3)$ is in $R$.
-* $R_{(4, 6)}:$ $x$ and $y$ are both natural numbers. $4 + 6 = 10$ and $\frac{10}{2}=5$, therefore $(4,6)$ is also in $R$.
-* $2\neq 5$, therefore $R_{(4, 6)} \neq R_{(1, 3)}$. If these two items are not reflexive, then this set does not have a reflexive property.
-* If the set does not have a reflexive relation, it cannot have an equivalence relation.
+* In order to prove $R$ is an equivalence relation, we need to prove that it is symmetric, reflexive and transitive.
+  * It is symmetric as if $x+y$ is even, then so is $y+x$.
+  * It is reflexive if for all $x \in N$, $(x, x) \in R$. As any $x$ would need to be an even natural number, this would satisfy the constraints that $y \in N, y \ \text{is even}$.
+  * It is transitive if $(x, y) \in R, (y, z) \in R$, and $(x, z) \in R$. The addition of any two even numbers is always another even number, therefore any $(x, y)$ that satisfies the constraints of this set would also satisfy them in the case of $(y, z)$ and $(x, z)$.
+* As this set satisfies symmetric, reflexive and transitive relations, we can prove $R$ is an equivalence relation.
